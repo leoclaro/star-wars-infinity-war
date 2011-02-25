@@ -1,0 +1,71 @@
+;---------------------------------------------------------------------
+[Characters]
+
+cless/cless.def
+Lloyd/Lloyd.def
+Leon/Leon.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+BLANK
+BLANK
+BLANK
+BLANK
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+Teste/Teste.def
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+CHEFE/CHEFE.def
+CHEFE/CHEFE.def
+CHEFE/CHEFE.def
+
+;-----------------------
+[ExtraStages]
+
+stages/kfm.def
+stages/stage0.def
+stages/MountFarlos/MountFarlos.def
+stages/Pier/Pier.def
+stages/Forest/Forest.def
+stages/ShadowsCave/ShadowsCave.def
+
+stages/novos/lee.def
+stages/novos/shikamaru.def
+stages/novos/gai.def
+stages/novos/forest.def
+stages/novos/neji vs lee.def
+stages/novos/tsunade.def
+stages/novos/kiba.def
+stages/novos/kiga.def
+
+;---------------------------------------------------------------------
+[Options]
+ ;Here you set the maximum number of matches to fight before game ends
+ ;in Arcade Mode. The first number is the number of matches against
+ ;characters with order=1, followed by order=2 and order=3 respectively.
+ ;For example, for 4,3,1 you will fight up to 4 randomly-picked
+ ;characters who have order=1, followed by 3 with order=2 and 1 with
+ ;order=3.
+arcade.maxmatches = 6,1,1,0,0,0,0,0,0,0
+
+ ;Maximum number of matches to fight before game ends in Team Mode.
+ ;Like arcade.maxmatches, but applies to Team Battle.
+team.maxmatches = 4,1,1,0,0,0,0,0,0,0

@@ -1,0 +1,27 @@
+25 x 25 small portrait
+
+CHARS
+Cecil
+Chester
+Cless
+Frio Swordsman 
+Judas
+Kongman
+Kratos
+Kyaro Valkyrie
+Kyle
+Leon
+Lloyd
+Loni
+Luke
+Race
+Reid
+Stahn
+
+SUB-BOSS
+Shizel
+
+BOSSES
+Dhaos
+Yggdrasil
+
