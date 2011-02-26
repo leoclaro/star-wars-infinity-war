@@ -42,7 +42,7 @@ fight = fight.def         ;Fight definition filename
 font1 = font/f-4x6.fnt    ;System fonts
 font2 = font/f-6x9.fnt    ;System fonts
 font3 = font/jg.fnt       ;System fonts 
-font4 = font/tales.fnt
+font4 = font/star.fnt
 font5 = font/15x19.fnt
 font6 = font/name2.fnt
 sprite=
@@ -87,13 +87,13 @@ menu.item.spacing = 0, 500
 ; Names for each of the items in the menu. Names must be in quotes.
 ; Use "" to disable an item. If all are disabled, goes straight to demo mode
 ; (hold Esc to quit demos). *2001.11.14 NEW*
-menu.itemname.arcade = "I"
+menu.itemname.arcade = "A"
 menu.itemname.versus = "G"
-menu.itemname.teamarcade = "K"
+menu.itemname.teamarcade = "J
 menu.itemname.teamversus = "D"
 menu.itemname.teamcoop = "F"
-menu.itemname.survival = "J"
-menu.itemname.survivalcoop = "A"
+menu.itemname.survival = "I
+menu.itemname.survivalcoop = "K"
 menu.itemname.training = "C"
 menu.itemname.watch = "B"
 menu.itemname.options = "E"

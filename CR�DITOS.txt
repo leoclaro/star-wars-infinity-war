@@ -7,6 +7,10 @@ Portraits:
 Anakin, Yoda, Vader, Maul, Windu, Obi-Wan = ~vividfury
 
 
+Imagens da fonte do Screen pack:
+~TereseNielsen e ~vividfury
+
+
 Stages:
 
 
@@ -17,6 +21,6 @@ Effects:
 
 
 
-
+~TereseNielsen: http://teresenielsen.deviantart.com/
 ~vividfury: http://vividfury.deviantart.com/
 Grim: http://sdb.neuropod.net
