@@ -40,8 +40,8 @@ shadowoffset = 0		;Number of pixels to vertically offset the shadow
 draw.offset = 0,0		;Player drawing offset in pixels (x, y)
 
 [Velocity]
-walk.fwd  = 2.4		;Walk forward
-walk.back = -2.2		;Walk backward
+walk.fwd  = 1;2.4		;Walk forward
+walk.back = -0.5;-2.2		;Walk backward
 run.fwd  = 4.6, 0		;Run forward (x, y)
 run.back = -4.5,-3.8	;Hop backward (x, y)
 jump.neu = 0,-8.4		;Neutral jumping velocity (x, y)
@@ -71,6 +71,45 @@ crouch.friction = .82	;Friction coefficient when crouching
 ; [State STATENO, ?]     ? - any number you choose
 ; type = ?
 ; ...
+
+;---------------------------------------------------------------------------
+;Walk / Andando
+
+[Statedef 20]
+type    = S
+physics = S
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 5
+trigger2 = animelem = 11
+value = S20,0
+volume = 100
+
+[State 20, 1]
+type = VelSet
+trigger1 = command = "holdfwd"
+x = const(velocity.walk.fwd.x)
+
+[State 20, 2]
+type = VelSet
+trigger1 = command = "holdback"
+x = const(velocity.walk.back.x)
+
+[State 20, 3]
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 20
+
+[State 20, 4]
+type = ChangeAnim
+triggerall = vel x < 0
+trigger1 = Anim != 21 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 21
 
 ;---------------------------------------------------------------------------
 ; Lose by Time Over

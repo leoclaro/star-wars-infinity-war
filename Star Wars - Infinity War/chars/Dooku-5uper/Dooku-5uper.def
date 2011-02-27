@@ -7,7 +7,7 @@ author="Leonardo/5uper"
 pal.defaults=1
 [Files]
 sprite=Dooku-5uper.sff
-sound=
+sound=Dooku-5uper.snd
 anim=Dooku-5uper.air
 cmd=Dooku-5uper.cmd
 cns=Dooku-5uper.cns

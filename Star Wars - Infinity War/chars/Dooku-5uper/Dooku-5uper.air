@@ -40,52 +40,82 @@
 
 ; Crouch to Stand
 [Begin Action 12]
-0,0, 0,0, 1
+6,20, 0,0, 4
+6,10, 0,0, 4
+6,0, 0,0, 4
 
 ;--------------------------------------------------
 ; Walking Forward
 [Begin Action 20]
-0,0, 0,0, 1
+20,10, 0,0, 4
+20,20, 0,0, 4
+20,30, 0,0, 4
+20,40, 0,0, 4
+20,50, 0,0, 4
+20,60, 0,0, 4
+20,70, 0,0, 4
+20,80, 0,0, 4
+20,90, 0,0, 4
+20,100, 0,0, 4
+20,110, 0,0, 4
+20,120, 0,0, 4
 
 
 ; Walking Back
 [Begin Action 21]
-0,0, 0,0, 1
+20,120, 0,0, 5
+20,110, 0,0, 5
+20,100, 0,0, 5
+20,90, 0,0, 5
+20,80, 0,0, 5
+20,70, 0,0, 5
+20,60, 0,0, 5
+20,50, 0,0, 5
+20,40, 0,0, 5
+20,30, 0,0, 5
+20,20, 0,0, 5
+20,10, 0,0, 5
 
 ;--------------------------------------------------
 ; Jump start frame
 [Begin Action 40]
-0,0, 0,0, 1
+40,0, 0,0, 2
 
 
 ; Starting Jumping up
 [Begin Action 41]
-0,0, 0,0, 1
+41,10, 0,0, 10
 
 
 ; Starting Jumping forwards
 [Begin Action 42]
-0,0, 0,0, 1
+41,10, 0,0, 10
 
 
 ; Starting Jumping backwards
 [Begin Action 43]
-0,0, 0,0, 1
+41,10, 0,0, 10
 
 
 ; Peak and coming down from Jumping up
 [Begin Action 44]
-0,0, 0,0, 1
+41,10, 0,0, 7
+Loopstart
+41,0, 0,0, 1
 
 
 ; Peak and coming down from Jumping forwards
 [Begin Action 45]
-0,0, 0,0, 1
+41,10, 0,0, 1
+Loopstart
+41,0, 0,0, 1
 
 
 ; Peak and coming down from Jumping backwards
 [Begin Action 46]
-0,0, 0,0, 1
+41,10, 0,0, 7
+Loopstart
+41,0, 0,0, 1
 
 
 ; Jump land frame
