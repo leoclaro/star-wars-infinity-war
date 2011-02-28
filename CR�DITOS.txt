@@ -2,6 +2,7 @@ Sheets de Chars:
 Dooku = Grim e Bonzai
 General Grievous, Anakin = Grim
 Luke Vader = Silver Centorion
+Coleção de Sprite de Star wars = Jonathanpb
 
 Portraits:
 Anakin, Yoda, Vader, Maul, Windu, Obi-Wan = ~vividfury
@@ -24,3 +25,4 @@ Effects:
 ~TereseNielsen: http://teresenielsen.deviantart.com/
 ~vividfury: http://vividfury.deviantart.com/
 Grim: http://sdb.neuropod.net
+Jonathanpb: http://scratch.mit.edu/projects/Jonathanpb/302606
