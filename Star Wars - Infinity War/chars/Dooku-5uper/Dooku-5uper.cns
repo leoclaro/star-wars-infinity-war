@@ -42,8 +42,8 @@ draw.offset = 0,0		;Player drawing offset in pixels (x, y)
 [Velocity]
 walk.fwd  = 1;2.4		;Walk forward
 walk.back = -0.5;-2.2		;Walk backward
-run.fwd  = 4.6, 0		;Run forward (x, y)
-run.back = -4.5,-3.8	;Hop backward (x, y)
+run.fwd  = 11,0;4.6, 0		;Run forward (x, y)
+run.back = -7,-3.8;-4.5,-3.8	;Hop backward (x, y)
 jump.neu = 0,-8.4		;Neutral jumping velocity (x, y)
 jump.back = -2.55		;Jump back Speed (x, y)
 jump.fwd = 2.5		;Jump forward Speed (x, y)
@@ -54,7 +54,7 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0	;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
 yaccel = .44		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing
@@ -74,7 +74,7 @@ crouch.friction = .82	;Friction coefficient when crouching
 
 ;---------------------------------------------------------------------------
 ;Walk / Andando
-
+;---------------------------------------------------------------------------
 [Statedef 20]
 type    = S
 physics = S
@@ -110,6 +110,167 @@ triggerall = vel x < 0
 trigger1 = Anim != 21 && Anim != 5
 trigger2 = Anim = 5 && AnimTime = 0
 value = 21
+
+;---------------------------------------------------------------------------
+; Pulo inicio
+;---------------------------------------------------------------------------
+[Statedef 40]
+type    = S
+physics = S
+anim = 40
+ctrl = 0
+sprpriority = 1
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+
+[State 40, 4]
+type = VelSet
+trigger1 = AnimTime = 0
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+y = const(velocity.jump.y)
+
+[State 40, 5]
+type = VelSet
+trigger1 = AnimTime = 0
+trigger1 = prevstateno = 100 ; Correr para frente
+trigger1 = sysvar(1) = 1
+x = const(velocity.runjump.fwd.x)
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S41,0
+volume = 800
+
+[State 40, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Som quando colocar o pé novamente no chão
+;---------------------------------------------------------------------------
+[Statedef 52]
+type    = S
+physics = S
+ctrl = 0
+anim = 47
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S47,0
+volume = 800
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 3]
+type = CtrlSet
+trigger1 = animtime = 0
+value = 1
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Correndo Frente
+;---------------------------------------------------------------------------
+[Statedef 100]
+type = S
+physics = S
+anim = 100
+sprpriority = 1
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1 ; quando o trigger é = a 1 significa que ele vai ficar rodando constantimente
+x = const(velocity.run.fwd.x)
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk ; Desabilita o andar
+
+[State 100, 3]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn  ; Desabilita o virar automatico
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holdfwd"
+value = 0
+
+;---------------------------------------------------------------------------
+; Correndo Tras / RUN_BACK
+;---------------------------------------------------------------------------
+[Statedef 105]
+type    = A
+physics = A
+ctrl = 0
+anim = 105
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 1
+value = S41,0
+volume = 800
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 19
+value = S47,0
+volume = 100
+
+[State 105, 1]
+type = VelSet
+trigger1 = Time = 0
+x = const(velocity.run.back.x)
+y = const(velocity.run.back.y)
+
+[State 105, 2]
+type = VelSet
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+x = -2
+y = 0
+
+[State 105, 3]
+type = CtrlSet
+trigger1 = Time = 30
+value = 1
+
+[State 105, 4]
+type = ChangeState
+triggerall = (Vel Y > 0) || (Pos Y >= 0)
+trigger1 = Time > 30
+value = 0
 
 ;---------------------------------------------------------------------------
 ; Lose by Time Over
